@@ -11,8 +11,8 @@ export default class Starships {
     return /*html*/`
     <div class='col-3'>
       <div class="card p-2 value">
-          ${this.name} - ${this.model} - Crew: ${this.crew}
-          - Passengers ${this.pass}
+          Name: ${this.name} Model: ${this.model} <br> 
+          Crew: ${this.crew} Passengers: ${this.pass}
       </div>
     </div>
     `
