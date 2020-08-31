@@ -10,7 +10,7 @@ class StarshipsService {
     // NOTE "GET" is the method to retrieve data
     api.get('starships')
       .then(res => {
-        ProxyState.next = res.data.next
+        ProxyState.nextship = res.data.next
         ProxyState.starships = res.data.results.map(c => new Starships(c))
       })
       .catch(error => {
@@ -19,11 +19,11 @@ class StarshipsService {
   }
 
   next() {
-    if (ProxyState.next) {
-      api.get(ProxyState.next)
+    if (ProxyState.nextship) {
+      api.get(ProxyState.nextship)
         .then(res => {
-          ProxyState.previous = res.data.previous
-          ProxyState.next = res.data.next
+          ProxyState.previousship = res.data.previous
+          ProxyState.nextship = res.data.next
           ProxyState.starships = res.data.results.map(c => new Starships(c))
         })
         .catch(error => {
@@ -34,11 +34,11 @@ class StarshipsService {
 
 
   previous() {
-    if (ProxyState.previous) {
-      api.get(ProxyState.previous)
+    if (ProxyState.previousship) {
+      api.get(ProxyState.previousship)
         .then(res => {
-          ProxyState.previous = res.data.previous
-          ProxyState.next = res.data.next
+          ProxyState.previousship = res.data.previous
+          ProxyState.nextship = res.data.next
           ProxyState.starships = res.data.results.map(c => new Starships(c))
         })
         .catch(error => {

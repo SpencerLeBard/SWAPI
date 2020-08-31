@@ -12,7 +12,9 @@ class AppState extends EventEmitter {
 
   /** @type { Starships[] } */
   starships = []
+  nextship = ''
 
+  previousship = ''
 
 }
 
